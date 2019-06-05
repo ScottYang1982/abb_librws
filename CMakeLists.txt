@@ -31,13 +31,14 @@ include_directories(include
                     ${Poco_INCLUDE_DIRS}
                     ${catkin_INCLUDE_DIRS})
 
-add_library(${PROJECT_NAME} ${SRC_FILES})
+add_library(${PROJECT_NAME} STATIC ${SRC_FILES})
 target_link_libraries(${PROJECT_NAME} ${Poco_LIBRARIES} ${catkin_LIBRARIES})
 
 #############
 ## Install ##
 #############
 install(TARGETS ${PROJECT_NAME}
+        ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
         LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION})
 
 install(DIRECTORY include
